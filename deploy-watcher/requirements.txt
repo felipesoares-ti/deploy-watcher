@@ -1,1 +1,3 @@
-# Dependências do projeto
+requests
+PyYAML
+rich
