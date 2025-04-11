@@ -1,0 +1,39 @@
+name: Publish Python 🐍📦 to PyPI
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  publish-to-pypi:
+    name: Build and publish to PyPI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'  # ou a versão que preferir
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip build
+
+      - name: Build the package
+        run: |
+          python -m build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # NÃO precisa de token se estiver usando OpenID Connect (que é o seu caso)
+          # Se for usar token: configure o PYPI_API_TOKEN como secret no GitHub
+          # password: ${{ secrets.PYPI_API_TOKEN }}
+          # repository-url: https://upload.pypi.org/legacy/
+          skip-existing: true
