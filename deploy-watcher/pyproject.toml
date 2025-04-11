@@ -1,0 +1,23 @@
+[project]
+name = "deploy-watcher"
+version = "0.1.0"
+description = "Ferramenta de monitoramento de deploys via GitHub/GitLab com notificações para Slack, Discord e e-mail."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Felipe Soares", email = "felipesoares.ti@gmail.com" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/felipesoares-ti/deploy-watcher"
+"Bug Tracker" = "https://github.com/felipesoares-ti/deploy-watcher/issues"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
